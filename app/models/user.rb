@@ -1,7 +1,7 @@
 class User < ApplicationRecord
-  has_many :posts, dependent: :destroy
-  has_many :likes, dependent: :destroy
-  has_many :comments, dependent: :destroy
+  has_many :posts
+  has_many :likes
+  has_many :comments
 
   def recent_posts
     post.order(created_at: :desc).limit(3)
