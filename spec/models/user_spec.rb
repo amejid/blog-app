@@ -7,8 +7,15 @@ RSpec.describe User, type: :model do
       expect(user.valid?).to eq false
     end
 
+    it 'checks if posts_counter is an integer' do
+      user = User.new(name: 'John', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Nice user',
+                      posts_counter: 1.5)
+      expect(user.valid?).to eq false
+    end
+
     it 'checks if posts_counter is greater or equal to zero' do
-      user = User.new(photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Nice user', posts_counter: -1)
+      user = User.new(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Nice user',
+                      posts_counter: -1)
       expect(user.valid?).to eq false
     end
   end

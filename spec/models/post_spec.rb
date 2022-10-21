@@ -19,6 +19,18 @@ RSpec.describe Post, type: :model do
       expect(post.valid?).to eq false
     end
 
+    it 'checks if likes_counter is an integer' do
+      post = Post.new(author: @user, title: 'Post communication', text: 'This is my first post', likes_counter: 1.7,
+                      comments_counter: 0)
+      expect(post.valid?).to eq false
+    end
+
+    it 'checks if comments_counter is an integer' do
+      post = Post.new(author: @user, title: 'Post communication', text: 'This is my first post', likes_counter: 0,
+                      comments_counter: 1.8)
+      expect(post.valid?).to eq false
+    end
+
     it 'checks if likes_counter is greater or equal to zero' do
       post = Post.new(author: @user, title: 'Post communication', text: 'This is my first post', likes_counter: -1,
                       comments_counter: 0)
