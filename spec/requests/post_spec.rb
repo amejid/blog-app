@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Users controller', type: :request do
+RSpec.describe 'Posts controller', type: :request do
   before(:all) do
     @user = User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.',
                         posts_counter: 0)
