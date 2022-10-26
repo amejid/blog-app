@@ -1,1 +1,6 @@
 <h1>All users</h1>
+
+<% @users.each do |user| %>
+  <img src="<%= user.photo %>" alt="User photo">
+  <p><%= link_to user.name, user_path(user) %> <span>Number of posts: <%= user.posts_counter %> </span></p>
+<% end %>
