@@ -1,6 +1,8 @@
 # Blog App
 
-> This is a basic Blog website that allows users to create, edit, comment and delete posts, keeping data in a database. This project implements both authorization and authentication in order to provide extended functionality to logged in and authorized users.
+> This is a basic Blog website that allows users to create, edit, comment and delete posts, keeping data in a database.
+> This project implements both authorization and authentication in order to provide extended functionality to logged in
+> and authorized users.
 
 ## Built With
 
@@ -21,9 +23,9 @@ To get a local copy up and running follow these simple example steps.
 - Clone the repository using `git clone git@github.com:amejid/blog-app.git`
 - Navigate to the folder using `cd blog-app`
 - Use the following commands to
-  - install necessary gems `bundle install`
-  - install necessary javascript packages `npm install`
-  - run the development server `rails server`
+    - install necessary gems `bundle install`
+    - install necessary javascript packages `npm install`
+    - run the development server `rails server`
 
 ## Author
 
@@ -48,3 +50,7 @@ Give a ⭐️ if you like this project!
 - Hat tip to anyone whose code was used
 - Inspiration
 - etc
+
+## 📝 License
+
+This project is [MIT](./MIT.md) licensed.
