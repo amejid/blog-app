@@ -9,3 +9,9 @@
     <p><%= comment.author.name %> : <%= comment.text %></p>
   <% end %>
 </ul>
+
+<%= form_with url: "/users/#{@post.author_id}/posts/#{@post.id}/likes" do |form| %>
+  <%= form.submit 'Like' %>
+<% end %>
+
+<%= link_to 'Add comment', new_user_post_comment_path(@user, @post) %>
