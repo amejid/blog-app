@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  before(:all) do
+  before(:example) do
     @user = User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.',
                         posts_counter: 0)
   end
@@ -72,7 +72,7 @@ RSpec.describe Post, type: :model do
     it 'updates posts_counter of the author' do
       Post.create(author: @user, title: 'Post communication', text: 'This is my first post', likes_counter: 0,
                   comments_counter: 0)
-      expect(@user.posts_counter).to eq 2
+      expect(@user.posts_counter).to eq 1
     end
   end
 end
