@@ -10,7 +10,7 @@
       <p><%= post.text %></p>
       <p>Comments <%= post.comments_counter %>, Likes <%= post.likes_counter %></p>
       <ul>
-        <% post.recent_comments.each do |comment| %>
+        <% post.recent_comments.includes(:author).each do |comment| %>
           <p><%= comment.author.name %> : <%= comment.text %></p>
         <% end %>
       </ul>
