@@ -2,6 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'Users controller', type: :request do
   it 'renders users page' do
+    User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.',
+                posts_counter: 0)
     get '/users'
 
     expect(response).to have_http_status(:ok)

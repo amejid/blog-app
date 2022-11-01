@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_user, only: %i[index create show]
   def index
-    @posts = @user.posts
+    @posts = @user.posts.paginate(page: params[:page], per_page: 3)
   end
 
   def show

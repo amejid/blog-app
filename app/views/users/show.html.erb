@@ -7,13 +7,13 @@
 <p><%= @user.bio %></p>
 
 <ul>
-<% @user.recent_posts.each  do |post| %>
-  <li>
-    <p><%= post.title %></p>
-    <p><%= truncate(post.text, length: 50) %></p>
-    <p>Comments <%= post.comments_counter %>, Likes <%= post.likes_counter %></p>
-  </li>
-<% end %>
+  <% @user.recent_posts.each do |post| %>
+    <li>
+      <p><%= link_to post.title, user_post_path(@user, post) %></p>
+      <p><%= truncate(post.text, length: 50) %></p>
+      <p>Comments <%= post.comments_counter %>, Likes <%= post.likes_counter %></p>
+    </li>
+  <% end %>
 </ul>
 
 <%= link_to "See all posts", user_posts_path(@user) %>
