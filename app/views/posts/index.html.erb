@@ -7,7 +7,7 @@
   <% @posts.each do |post| %>
     <li>
       <p><%= link_to post.title, user_post_path(@user, post) %></p>
-      <p><%= post.text %></p>
+      <p><%= truncate(post.text, length: 50) %></p>
       <p>Comments <%= post.comments_counter %>, Likes <%= post.likes_counter %></p>
       <ul>
         <% post.recent_comments.includes(:author).each do |comment| %>
@@ -17,3 +17,5 @@
     </li>
   <% end %>
 </ul>
+
+<%= will_paginate @posts, :container => false %>
