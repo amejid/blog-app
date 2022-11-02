@@ -34,9 +34,9 @@ gem 'jbuilder'
 # gem "kredis"
 
 # Devise
-gem "devise"
-gem "devise-i18n"
-gem "devise-bootstrap5"
+gem 'devise'
+gem 'devise-bootstrap5'
+gem 'devise-i18n'
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
@@ -53,7 +53,7 @@ gem 'bootsnap', require: false
 gem 'bootstrap'
 
 # Use Sass to process CSS
-gem "sassc-rails"
+gem 'sassc-rails'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
