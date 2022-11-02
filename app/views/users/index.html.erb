@@ -6,3 +6,5 @@
 <% end %>
 
 <%= link_to 'Create post', new_user_post_path(@user) %>
+
+<%= link_to "Sign out", destroy_user_session_path, method: :delete, data: { turbo_method: :delete } %>
