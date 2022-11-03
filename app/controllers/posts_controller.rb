@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
+
   before_action :set_user, only: %i[index create show]
   def index
     @posts = @user.posts.paginate(page: params[:page], per_page: 3)
@@ -17,6 +19,17 @@ class PostsController < ApplicationController
       redirect_to user_posts_path(current_user)
     else
       render :new, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @user = @post.author
+    @post.destroy
+    @user.posts_counter -= 1
+
+    if @user.save
+      redirect_to user_posts_path(@user)
     end
   end
 
