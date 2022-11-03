@@ -1,17 +1,25 @@
 <h1>Single post</h1>
 
-<p><%= @post.title %> by <%= @post.author.name %> Comments <%= @post.comments_counter %>, Likes <%= @post.likes_counter %></p>
+<p><%= @post.title %> by <%= @post.author.name %> Comments <%= @post.comments_counter %>,
+  Likes <%= @post.likes_counter %></p>
 
 <p><%= @post.text %></p>
 
 <ul>
   <% @post.comments.includes(:author).each do |comment| %>
     <p><%= comment.author.name %> : <%= comment.text %></p>
+    <% if can? :destroy, comment %>
+      <%= link_to "Delete Comment", user_post_comment_path(@post.author, @post, comment), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+    <% end %>
   <% end %>
 </ul>
 
 <%= form_with url: "/users/#{@post.author_id}/posts/#{@post.id}/likes" do |form| %>
   <%= form.submit 'Like' %>
+<% end %>
+
+<% if can? :destroy, @post %>
+  <%= link_to "Delete post", user_post_path, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
 <% end %>
 
 <%= link_to 'Add comment', new_user_post_comment_path(@user, @post) %>
