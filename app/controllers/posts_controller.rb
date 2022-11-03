@@ -2,8 +2,9 @@ class PostsController < ApplicationController
   load_and_authorize_resource
 
   before_action :set_user, only: %i[index create show]
+
   def index
-    @posts = @user.posts.paginate(page: params[:page], per_page: 3)
+    @posts = @user.posts.includes(:author).paginate(page: params[:page], per_page: 3)
   end
 
   def show
@@ -28,9 +29,7 @@ class PostsController < ApplicationController
     @post.destroy
     @user.posts_counter -= 1
 
-    if @user.save
-      redirect_to user_posts_path(@user)
-    end
+    redirect_to user_posts_path(@user) if @user.save
   end
 
   def new

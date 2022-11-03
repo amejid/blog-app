@@ -22,9 +22,7 @@ class CommentsController < ApplicationController
     @comment.destroy
     @post.comments_counter -= 1
 
-    if @post.save
-      redirect_to user_post_path(@user, @post)
-    end
+    redirect_to user_post_path(@user, @post) if @post.save
   end
 
   def new
