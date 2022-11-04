@@ -6,8 +6,8 @@ class Api::V1::CommentsController < ApiController
   def create
     @post = Post.find(params[:post_id])
 
-    if @post.comments.create(text: params[:comment][:text], author: @current_user)
-      render json: { success: "Comment created successfully" }
-    end
+    return unless @post.comments.create(text: params[:comment][:text], author: @current_user)
+
+    render json: { success: 'Comment created successfully' }
   end
 end
