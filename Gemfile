@@ -38,6 +38,9 @@ gem 'devise'
 gem 'devise-bootstrap5'
 gem 'devise-i18n'
 
+# Tokens
+gem 'jwt'
+
 # Authorization
 gem 'cancancan'
 
